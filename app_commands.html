@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application commands &#8212; Documentation 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Database configuration" href="database.html" />
+    <link rel="prev" title="Welcome to Macula’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="application-commands">
+<span id="appcommands"></span><h1>Application commands<a class="headerlink" href="#application-commands" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="running-the-app">
+<h2>Running the app<a class="headerlink" href="#running-the-app" title="Permalink to this headline">¶</a></h2>
+<p>This will start the flask server.</p>
+<blockquote>
+<div><p><em>python app.py runserver</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>This will run the file matching test_*.py in project/tests folder.</p>
+<blockquote>
+<div><p><em>python app.py test</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="creating-the-database">
+<h2>Creating the database<a class="headerlink" href="#creating-the-database" title="Permalink to this headline">¶</a></h2>
+<p>This will initialise the database with default data.</p>
+<blockquote>
+<div><p><em>python app.py create_db</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="dropping-the-database">
+<h2>Dropping the database<a class="headerlink" href="#dropping-the-database" title="Permalink to this headline">¶</a></h2>
+<p>This will completely drop the database. This needs to be run before create_db.</p>
+<blockquote>
+<div><p><em>python app.py drop_db</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="alembic-migrate">
+<h2>Alembic: Migrate<a class="headerlink" href="#alembic-migrate" title="Permalink to this headline">¶</a></h2>
+<p>Creates a new migration file. You can then edit the file.</p>
+<blockquote>
+<div><p><em>python app.py db migrate</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="alembic-upgrade">
+<h2>Alembic: Upgrade<a class="headerlink" href="#alembic-upgrade" title="Permalink to this headline">¶</a></h2>
+<p>Upgrades the database with the new migrations. You can replace head with a specific revision.</p>
+<blockquote>
+<div><p><em>python app.py db upgrade head</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="alembic-downgrade">
+<h2>Alembic: Downgrade<a class="headerlink" href="#alembic-downgrade" title="Permalink to this headline">¶</a></h2>
+<p>Downgrade the database by 1 revision. You can specify the number of revisions.</p>
+<blockquote>
+<div><p><em>python app.py db downgrade</em></p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Application commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-app">Running the app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-the-database">Creating the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dropping-the-database">Dropping the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alembic-migrate">Alembic: Migrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alembic-upgrade">Alembic: Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alembic-downgrade">Alembic: Downgrade</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Adding route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorators.html">Route decorators</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Macula’s documentation!</a></li>
+      <li>Next: <a href="database.html" title="next chapter">Database configuration</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, *.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/app_commands.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

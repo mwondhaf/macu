@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adding route &#8212; Documentation 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Route decorators" href="decorators.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="adding-route">
+<h1>Adding route<a class="headerlink" href="#adding-route" title="Permalink to this headline">¶</a></h1>
+<p>Adding a route is done in 3 steps.</p>
+<div class="section" id="handlers">
+<h2>Handlers<a class="headerlink" href="#handlers" title="Permalink to this headline">¶</a></h2>
+<p>Create or update an existing handler with a function with the query logic.</p>
+<p>These should include responses: success and error handling.</p>
+<p>Error responses can be found in __controllers/v1/<a href="#id5"><span class="problematic" id="id6">errors__</span></a>.</p>
+<p><strong>Example:</strong></p>
+<blockquote>
+<div><dl>
+<dt><a href="#id1"><span class="problematic" id="id2">*</span></a>def get_current_user():</dt><dd><p>username = get_jwt_identity()
+if isinstance(username, str):</p>
+<blockquote>
+<div><p>user = User.query.filter_by(username=username).first()
+return  {</p>
+<blockquote>
+<div><p>‘user_id’: user.id,
+‘username’: user.username,
+‘email’: user.email,
+‘first_name’: user.first_name,
+‘last_name’: user.last_name,
+‘registered_on’: user.registered_on</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>return errors.unauthorized(message=’login_required’)*</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="controllers">
+<h2>Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h2>
+<p>In the appropriate controller, add a function with associated logic and/or handler.</p>
+</div>
+<div class="section" id="route-config">
+<h2>Route config<a class="headerlink" href="#route-config" title="Permalink to this headline">¶</a></h2>
+<p>Define the route parameters.</p>
+<ul class="simple">
+<li><p>rule: Route url</p></li>
+<li><p>method: Route method</p></li>
+<li><p>endpoint: File in the controllers</p></li>
+<li><p>function: Function in the controller</p></li>
+<li><dl class="simple">
+<dt>opts:</dt><dd><ul>
+<li><p>use_pagination: Will paginate items in request</p></li>
+<li><p>auth_required: Check if user needs to be logged in</p></li>
+<li><p>auth_roles: Check if user has needed role</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Example:</strong></p>
+<blockquote>
+<div><dl>
+<dt><a href="#id3"><span class="problematic" id="id4">*</span></a>{</dt><dd><p>‘rule’: ‘/users/me’,
+‘method’: ‘GET’,
+‘endpoint’: ‘users’,
+‘function’: ‘get_current’,
+‘opts’: {</p>
+<blockquote>
+<div><p>‘use_pagination’: True,
+‘auth_required’: True,
+‘auth_roles’: [‘ADMIN’, ‘ANNOTATOR’]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>},*</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="app_commands.html">Application commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorators.html">Route decorators</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding route</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#handlers">Handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#controllers">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#route-config">Route config</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="decorators.html" title="previous chapter">Route decorators</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, *.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/workflow.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
