@@ -1,1 +1,13 @@
-'{}' 
+{
+    "name": "francis/html",
+    "description": "macula",
+    "type": "project",
+    "license": "propriety",
+    "authors": [
+        {
+            "name": "mwondhaf",
+            "email": "frankjay2017@gmail.com"
+        }
+    ],
+    "require": {}
+}
